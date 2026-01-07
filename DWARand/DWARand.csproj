@@ -1,0 +1,286 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2E6E66AA-C7DD-4CE0-A7CA-D0E7E5574654}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>DWARand</RootNamespace>
+    <AssemblyName>DWARand</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>randomizericon2.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ByteSize, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ByteSize.2.0.0\lib\net45\ByteSize.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Speech" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Help\DailyHelp.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Help\DailyHelp.Designer.cs">
+      <DependentUpon>DailyHelp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Help\SoundbankEditorHelp.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Help\SoundbankEditorHelp.Designer.cs">
+      <DependentUpon>SoundbankEditorHelp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Help\LauncherHelp.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Help\LauncherHelp.Designer.cs">
+      <DependentUpon>LauncherHelp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Help\RandomizerHelp.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Help\RandomizerHelp.Designer.cs">
+      <DependentUpon>RandomizerHelp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LogHandler.cs" />
+    <Compile Include="Chronom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Chronom.Designer.cs">
+      <DependentUpon>Chronom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HelpDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HelpDialog.Designer.cs">
+      <DependentUpon>HelpDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChronomCustom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChronomCustom.Designer.cs">
+      <DependentUpon>ChronomCustom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TTSDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TTSDialog.Designer.cs">
+      <DependentUpon>TTSDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SaveBankDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SaveBankDialog.Designer.cs">
+      <DependentUpon>SaveBankDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SoundbankEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SoundbankEditor.Designer.cs">
+      <DependentUpon>SoundbankEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main.Designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ProtVar.cs" />
+    <Compile Include="RandomizeDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RandomizeDialog.Designer.cs">
+      <DependentUpon>RandomizeDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Randomizer.cs" />
+    <Compile Include="RegistryHandler.cs" />
+    <Compile Include="Settings.cs" />
+    <Compile Include="SettingsDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SettingsDialog.Designer.cs">
+      <DependentUpon>SettingsDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\CoreSettings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Settings\CoreSettings.Designer.cs">
+      <DependentUpon>CoreSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\AboutSettings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Settings\AboutSettings.Designer.cs">
+      <DependentUpon>AboutSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\DailySettings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Settings\DailySettings.Designer.cs">
+      <DependentUpon>DailySettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Soundbank.cs" />
+    <Compile Include="TemplateBank.cs" />
+    <Compile Include="UI\DCheckedListBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\DFlowLayoutPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\DPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\SoundDisplay.cs" />
+    <Compile Include="UI\SoundsContainer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\SoundsContainer.Designer.cs">
+      <DependentUpon>SoundsContainer.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Chronom.resx">
+      <DependentUpon>Chronom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HelpDialog.resx">
+      <DependentUpon>HelpDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Help\DailyHelp.resx">
+      <DependentUpon>DailyHelp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Help\SoundbankEditorHelp.resx">
+      <DependentUpon>SoundbankEditorHelp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Help\LauncherHelp.resx">
+      <DependentUpon>LauncherHelp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Help\RandomizerHelp.resx">
+      <DependentUpon>RandomizerHelp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChronomCustom.resx">
+      <DependentUpon>ChronomCustom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TTSDialog.resx">
+      <DependentUpon>TTSDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SaveBankDialog.resx">
+      <DependentUpon>SaveBankDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SoundbankEditor.resx">
+      <DependentUpon>SoundbankEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="RandomizeDialog.resx">
+      <DependentUpon>RandomizeDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SettingsDialog.resx">
+      <DependentUpon>SettingsDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\CoreSettings.resx">
+      <DependentUpon>CoreSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\AboutSettings.resx">
+      <DependentUpon>AboutSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\DailySettings.resx">
+      <DependentUpon>DailySettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\SoundsContainer.resx">
+      <DependentUpon>SoundsContainer.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\353.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\randomizeicon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\randomizeicon2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\daily.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\options.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\About.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="randomizer orange.ico" />
+    <Content Include="randomizericon.ico" />
+    <Content Include="randomizericon2.ico" />
+    <None Include="Resources\Chronom2.png" />
+    <None Include="Resources\sndbnkeditor.png" />
+    <None Include="Resources\Chronom.png" />
+    <None Include="Resources\launcher1.png" />
+    <None Include="Resources\randtest2.png" />
+    <None Include="Resources\randomizericon about.png" />
+    <None Include="Resources\randomizer orange.png" />
+    <None Include="Resources\randomizericon 4.png" />
+    <None Include="Resources\soundbankicon.png" />
+    <None Include="Resources\randomizericon 3.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

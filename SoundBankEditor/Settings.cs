@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Xml;
 using System.Xml.Serialization;
+using System.Windows.Forms;
 
 namespace DWARand
 {
@@ -44,6 +45,7 @@ namespace DWARand
                 serializer.Serialize(stream, options);
                 stream.Close();
             }
+            
         }
 
         public static void ValidateBanks()
@@ -52,7 +54,7 @@ namespace DWARand
             List<DailySoundbank> toRemove = new List<DailySoundbank>();
             foreach (var item in options.dailySoundbanks)
             {
-                if(!Directory.Exists(Program.exeloc + @"\User\Speech\" + item.Name))
+                if(!Directory.Exists(Program.exeloc + @"\Speech\" + item.Name))
                 {
                     toRemove.Add(item);
                 }
@@ -64,7 +66,7 @@ namespace DWARand
             }
 
             //Find any new ones?
-            DirectoryInfo speech = new DirectoryInfo(Program.exeloc + @"\User\Speech");
+            DirectoryInfo speech = new DirectoryInfo(Program.exeloc + @"\Speech");
 
             var banks = speech.GetDirectories();
 
@@ -84,7 +86,7 @@ namespace DWARand
 
         public static void InitOptions()
         {
-            DirectoryInfo speech = new DirectoryInfo(Program.exeloc + @"\User\Speech");
+            DirectoryInfo speech = new DirectoryInfo(Program.exeloc + @"\Speech");
 
             var banks = speech.GetDirectories().ToList();
 

@@ -22,7 +22,7 @@ namespace DWARand
 
         private void RandomizeDialog_Load(object sender, EventArgs e)
         {
-            DirectoryInfo speech = new DirectoryInfo(Program.exeloc + @"\User\Speech");
+            DirectoryInfo speech = new DirectoryInfo(Program.exeloc + @"\Speech");
 
             var banks = speech.GetDirectories();
 
@@ -87,7 +87,7 @@ namespace DWARand
 
             if (!replaceChkBox.Checked)
             {
-                if(Directory.Exists(Program.exeloc + @"\User\Speech\" + nameBox.Text))
+                if(Directory.Exists(Program.exeloc + @"\Speech\" + nameBox.Text))
                 {
                     DialogResult dialogResult = MessageBox.Show("A soundbank with the name " + nameBox.Text + " already exists, do you want to overwrite it?", "Warning!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     if (dialogResult == DialogResult.No)

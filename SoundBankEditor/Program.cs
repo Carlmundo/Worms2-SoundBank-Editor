@@ -30,16 +30,14 @@ namespace DWARand
 
                 return;
             }
-
             Randomizer.Initialize();
             OptionsHandler.Initialize();
-
             if (OptionsHandler.options.registerOnStartup)
             {
                 RegistryHandler.Register();
             }
 
-            if(args.Count() > 0)
+            if (args.Count() > 0)
             {
                 var processed = args[0].Replace("%20", " ");
                 processed = processed.Substring(10);
@@ -64,7 +62,7 @@ namespace DWARand
         public static List<string> CheckIntegrity()
         {
             List<string> invalidationMessages = new List<string>();
-            if (!Directory.Exists(exeloc + @"\User\Speech"))
+            if (!Directory.Exists(exeloc + @"\Speech"))
             {
                 invalidationMessages.Add("Speech directory not found, is DWARand in the Worms Armageddon directory?\n");
             }
@@ -140,7 +138,7 @@ namespace DWARand
                 string seed = vars["seed"].varValue.FirstOrDefault();
                 List<string> banks = new List<string>();
 
-                if (Directory.Exists(Program.exeloc + @"\User\Speech\" + bnkName))
+                if (Directory.Exists(Program.exeloc + @"\Speech\" + bnkName))
                 {
                     DialogResult dialogResult = MessageBox.Show("A soundbank with the name " + bnkName + " already exists, do you want to overwrite it?", "Warning!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     if (dialogResult == DialogResult.No)
@@ -151,7 +149,7 @@ namespace DWARand
 
                 foreach (var item in vars["sndbanks"].varValue)
                 {
-                    if (!Directory.Exists(Program.exeloc + @"\User\Speech\" + item))
+                    if (!Directory.Exists(Program.exeloc + @"\Speech\" + item))
                     {
                         MessageBox.Show("Soundbank " + item + " is missing! Aborting.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;

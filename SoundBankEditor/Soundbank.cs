@@ -19,7 +19,7 @@ namespace DWARand
         {
             Name = "<Default>";
 
-            DirectoryInfo sndbnk = new DirectoryInfo(Program.exeloc + @"\User\Speech\");
+            DirectoryInfo sndbnk = new DirectoryInfo(Program.exeloc + @"\Speech\");
 
             sounds = sndbnk.GetFiles().ToList();
 
@@ -43,7 +43,7 @@ namespace DWARand
         {
             Name = name;
 
-            DirectoryInfo sndbnk = new DirectoryInfo(Program.exeloc + @"\User\Speech\" + Name);
+            DirectoryInfo sndbnk = new DirectoryInfo(Program.exeloc + @"\Speech\" + Name);
 
             sounds = sndbnk.GetFiles().ToList();
 

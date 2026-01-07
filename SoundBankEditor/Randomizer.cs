@@ -105,7 +105,7 @@ namespace DWARand
             Queue lcTemplatequeue = new Queue(templateBanks);
 
             //Create a new soundbank
-            Directory.CreateDirectory(Program.exeloc + @"\User\Speech\" + name);
+            Directory.CreateDirectory(Program.exeloc + @"\Speech\" + name);
 
             //Load the selected soundbanks
             List<Soundbank> sndbnks = new List<Soundbank>();
@@ -141,11 +141,11 @@ namespace DWARand
                 LogHandler.Log("[Info] Selected sound: " + sound.Name + "#" + selectedSoundId);
 
 
-                if (File.Exists(Program.exeloc + @"\User\Speech\" + name + @"\" + targetfile))
+                if (File.Exists(Program.exeloc + @"\Speech\" + name + @"\" + targetfile))
                 {
-                    File.SetAttributes(Program.exeloc + @"\User\Speech\" + name + @"\" + targetfile, FileAttributes.Normal);
+                    File.SetAttributes(Program.exeloc + @"\Speech\" + name + @"\" + targetfile, FileAttributes.Normal);
                 }
-                File.Copy(sound.FullName, Program.exeloc + @"\User\Speech\" + name + @"\" + targetfile, true);
+                File.Copy(sound.FullName, Program.exeloc + @"\Speech\" + name + @"\" + targetfile, true);
             }
 
             string surrenders = "";
@@ -215,7 +215,7 @@ namespace DWARand
                 banks.RemoveAt(taken);
             }
 
-            if (Directory.Exists(Program.exeloc + @"\User\Speech\Daily"))
+            if (Directory.Exists(Program.exeloc + @"\Speech\Daily"))
             {
                 DialogResult dialogResult = MessageBox.Show("A soundbank with the name Daily already exists, do you want to overwrite it?", "Warning!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (dialogResult == DialogResult.No)

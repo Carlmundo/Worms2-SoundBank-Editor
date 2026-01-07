@@ -30,7 +30,7 @@ namespace DWARand
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            DirectoryInfo speech = new DirectoryInfo(Program.exeloc + @"\User\Speech");
+            DirectoryInfo speech = new DirectoryInfo(Program.exeloc + @"\Speech");
 
             soundbanks.Add(new Soundbank());
 
@@ -50,7 +50,7 @@ namespace DWARand
 
             foreach (var item in Randomizer.templateBanks)
             {
-                dSoundListbox.Items.Add(new SoundDisplay() { displayName = item.friendlyName, name = item.name, description = item.description, sound = new SoundInfo(new FileInfo(Program.exeloc + @"\User\Speech\" + item.name)) , defaultSound = true });
+                dSoundListbox.Items.Add(new SoundDisplay() { displayName = item.friendlyName, name = item.name, description = item.description, sound = new SoundInfo(new FileInfo(Program.exeloc + @"\Speech\" + item.name)) , defaultSound = true });
             }
 
             dSoundListbox.SelectedIndex = 0;
@@ -87,19 +87,19 @@ namespace DWARand
 
                 if(sndbankBox.SelectedIndex == 0)
                 {
-                    displayItem.sound = new SoundInfo(new FileInfo(Program.exeloc + @"\User\Speech\" + displayItem.name));
+                    displayItem.sound = new SoundInfo(new FileInfo(Program.exeloc + @"\Speech\" + displayItem.name));
                     displayItem.defaultSound = true;
                 }
                 else
                 {
-                    if (File.Exists(Program.exeloc + @"\User\Speech\" + sndbankBox.Text + @"\" + displayItem.name))
+                    if (File.Exists(Program.exeloc + @"\Speech\" + sndbankBox.Text + @"\" + displayItem.name))
                     {
-                        displayItem.sound = new SoundInfo(new FileInfo(Program.exeloc + @"\User\Speech\" + sndbankBox.Text + @"\" + displayItem.name));
+                        displayItem.sound = new SoundInfo(new FileInfo(Program.exeloc + @"\Speech\" + sndbankBox.Text + @"\" + displayItem.name));
                         displayItem.defaultSound = false;
                     }
                     else
                     {
-                        displayItem.sound = new SoundInfo(new FileInfo(Program.exeloc + @"\User\Speech\" + displayItem.name));
+                        displayItem.sound = new SoundInfo(new FileInfo(Program.exeloc + @"\Speech\" + displayItem.name));
                         displayItem.defaultSound = true;
                     }
 
@@ -154,18 +154,18 @@ namespace DWARand
             dialog.ShowDialog();
             if (dialog.confirm)
             {
-                Directory.CreateDirectory(Program.exeloc + @"\User\Speech\" + dialog.bankName);
+                Directory.CreateDirectory(Program.exeloc + @"\Speech\" + dialog.bankName);
                 foreach (var item in dSoundListbox.Items)
                 {
                     var displayItem = (SoundDisplay)item;
 
-                    if (!displayItem.defaultSound && File.Exists(displayItem.sound.FullName) && displayItem.sound.FullName != Program.exeloc + @"\User\Speech\" + dialog.bankName + @"\" + displayItem.name)
+                    if (!displayItem.defaultSound && File.Exists(displayItem.sound.FullName) && displayItem.sound.FullName != Program.exeloc + @"\Speech\" + dialog.bankName + @"\" + displayItem.name)
                     {
-                        File.Copy(displayItem.sound.FullName, Program.exeloc + @"\User\Speech\" + dialog.bankName + @"\" + displayItem.name, true);
+                        File.Copy(displayItem.sound.FullName, Program.exeloc + @"\Speech\" + dialog.bankName + @"\" + displayItem.name, true);
                     }
                 }
 
-                DirectoryInfo speech = new DirectoryInfo(Program.exeloc + @"\User\Speech");
+                DirectoryInfo speech = new DirectoryInfo(Program.exeloc + @"\Speech");
 
                 soundbanks.Clear();
                 sndbankBox.Items.Clear();
@@ -193,9 +193,9 @@ namespace DWARand
             DialogResult dialogResult = MessageBox.Show("Do you want to delete " + sndbankBox.Text + "?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (dialogResult == DialogResult.Yes)
             {
-                Directory.Delete(Program.exeloc + @"\User\Speech\" + sndbankBox.Text, true);
+                Directory.Delete(Program.exeloc + @"\Speech\" + sndbankBox.Text, true);
 
-                DirectoryInfo speech100 = new DirectoryInfo(Program.exeloc + @"\User\Speech");
+                DirectoryInfo speech100 = new DirectoryInfo(Program.exeloc + @"\Speech");
 
                 soundbanks.Clear();
                 sndbankBox.Items.Clear();
@@ -228,9 +228,9 @@ namespace DWARand
             var displayItem = (SoundDisplay)dSoundListbox.Items[dSoundListbox.SelectedIndex];
 
             displayItem.defaultSound = true;
-            if(File.Exists(Program.exeloc + @"\User\Speech\" + sndbankBox.Text + @"\" + displayItem.sound.Name))
-                File.Delete(Program.exeloc + @"\User\Speech\" + sndbankBox.Text + @"\" + displayItem.sound.Name);
-            displayItem.sound = new SoundInfo(new FileInfo(Program.exeloc + @"\User\Speech\" + displayItem.name));
+            if(File.Exists(Program.exeloc + @"\Speech\" + sndbankBox.Text + @"\" + displayItem.sound.Name))
+                File.Delete(Program.exeloc + @"\Speech\" + sndbankBox.Text + @"\" + displayItem.sound.Name);
+            displayItem.sound = new SoundInfo(new FileInfo(Program.exeloc + @"\Speech\" + displayItem.name));
 
             dSoundListbox.Refresh();
         }

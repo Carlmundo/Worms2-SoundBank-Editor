@@ -31,11 +31,6 @@ namespace DWARand
                 return;
             }
             Randomizer.Initialize();
-            OptionsHandler.Initialize();
-            if (OptionsHandler.options.registerOnStartup)
-            {
-                RegistryHandler.Register();
-            }
 
             if (args.Count() > 0)
             {

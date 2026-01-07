@@ -96,9 +96,6 @@ namespace DWARand
                 banksUsed += sndbanks[i] + "#" + i + ((i != sndbanks.Count - 1) ? ", " : "");
             }
 
-            LogHandler.Log("[Info] Randomization started");
-            LogHandler.Log("[Info] Name: " + name + " Seed: " + seed + " Soundbanks: " + banksUsed);
-
             Random rnd = GetRNG(seed);
 
             //Copy the template list
@@ -124,21 +121,11 @@ namespace DWARand
                 Soundbank bank = sndbnks[selectedBankId];
 
 
-                LogHandler.Log("[Info] Selected bank: " + bank.Name + "#" + selectedBankId);
-
-                if (bank.sounds.Count == 0)
-                {
-                    LogHandler.Log("[Warning] Soundbank " + bank.Name + "#" + selectedBankId + " has been skipped");
-                    continue;
-                }
-
                 sndbnks[selectedBankId].timesUsedinRand += 1;
 
                 var selectedSoundId = rnd.Next(bank.sounds.Count);
 
                 var sound = bank.sounds[selectedSoundId];
-
-                LogHandler.Log("[Info] Selected sound: " + sound.Name + "#" + selectedSoundId);
 
 
                 if (File.Exists(Program.exeloc + @"\Speech\" + name + @"\" + targetfile))
@@ -152,8 +139,6 @@ namespace DWARand
 
             foreach (var item in sndbnks)
             {
-                LogHandler.Log("[Leaderboard] " + item.Name + ": " + item.timesUsedinRand);
-
                 if (item.timesUsedinRand == 0)
                 {
                     surrenders += " " + item.Name + ",";
@@ -164,12 +149,7 @@ namespace DWARand
             {
                 surrenders = surrenders.Remove(surrenders.Length - 1);
 
-                LogHandler.Log("[Surrenders] Surrendered banks:" + surrenders);
             }
-
-            LogHandler.Log("[Info] Randomization ended");
-
-            LogHandler.SaveLog();
         }
 
         private static Random GetRNG(string seed)
@@ -183,7 +163,7 @@ namespace DWARand
         {
             List<string> sndbnks = new List<string>();
 
-            var banks = OptionsHandler.options.dailySoundbanks.Where(x => x.Enabled == true).ToList();
+            var banks = "empty".ToList();
 
             if(banks.Count <= 1)
             {
@@ -211,7 +191,7 @@ namespace DWARand
             for (int i = 0; i < banksCount; i++)
             {
                 int taken = rnd.Next(banks.Count);
-                sndbnks.Add(banks[taken].Name);
+                sndbnks.Add(banks[taken].ToString());
                 banks.RemoveAt(taken);
             }
 

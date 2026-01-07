@@ -77,7 +77,6 @@
     <Compile Include="Help\RandomizerHelp.Designer.cs">
       <DependentUpon>RandomizerHelp.cs</DependentUpon>
     </Compile>
-    <Compile Include="LogHandler.cs" />
     <Compile Include="Chronom.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -130,32 +129,6 @@
       <DependentUpon>RandomizeDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="Randomizer.cs" />
-    <Compile Include="RegistryHandler.cs" />
-    <Compile Include="Settings.cs" />
-    <Compile Include="SettingsDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SettingsDialog.Designer.cs">
-      <DependentUpon>SettingsDialog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Settings\CoreSettings.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Settings\CoreSettings.Designer.cs">
-      <DependentUpon>CoreSettings.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Settings\AboutSettings.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Settings\AboutSettings.Designer.cs">
-      <DependentUpon>AboutSettings.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Settings\DailySettings.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Settings\DailySettings.Designer.cs">
-      <DependentUpon>DailySettings.cs</DependentUpon>
-    </Compile>
     <Compile Include="Soundbank.cs" />
     <Compile Include="TemplateBank.cs" />
     <Compile Include="UI\DCheckedListBox.cs">
@@ -219,18 +192,6 @@
     </Compile>
     <EmbeddedResource Include="RandomizeDialog.resx">
       <DependentUpon>RandomizeDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SettingsDialog.resx">
-      <DependentUpon>SettingsDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Settings\CoreSettings.resx">
-      <DependentUpon>CoreSettings.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Settings\AboutSettings.resx">
-      <DependentUpon>AboutSettings.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Settings\DailySettings.resx">
-      <DependentUpon>DailySettings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\SoundsContainer.resx">
       <DependentUpon>SoundsContainer.cs</DependentUpon>

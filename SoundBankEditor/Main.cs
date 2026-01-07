@@ -21,11 +21,6 @@ namespace DWARand
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void randomizeBtn_MouseEnter(object sender, EventArgs e)
         {
             hintsLbl.Text = "Randomize - Create a randomized soundbank";
@@ -60,22 +55,6 @@ namespace DWARand
             dailyRandomizeBtn.BackColor = baseClr;
         }
 
-        private void settingsBtn_MouseDown(object sender, MouseEventArgs e)
-        {
-            settingsBtn.BackColor = pressedClr;
-        }
-
-        private void settingsBtn_MouseEnter(object sender, EventArgs e)
-        {
-            hintsLbl.Text = "Settings - Change settings, duh!";
-            settingsBtn.BackColor = highlightClr;
-        }
-
-        private void settingsBtn_MouseLeave(object sender, EventArgs e)
-        {
-            hintsLbl.Text = "Hover your mouse over one of the buttons!";
-            settingsBtn.BackColor = baseClr;
-        }
 
         private void randomizeBtn_Click(object sender, EventArgs e)
         {
@@ -88,12 +67,6 @@ namespace DWARand
         private void dailyRandomizeBtn_Click(object sender, EventArgs e)
         {
             //Randomizer.Daily(DateTime.UtcNow.Date);
-        }
-
-        private void settingsBtn_Click(object sender, EventArgs e)
-        {
-            SettingsDialog dialog = new SettingsDialog();
-            dialog.ShowDialog();
         }
 
         private void Main_FormClosed(object sender, FormClosedEventArgs e)
